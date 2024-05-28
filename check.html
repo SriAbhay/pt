@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>check invoice</title>
+
+    <style>
+      #myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #0d0c0c; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #e7ef8a;
+}
+      </style>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+      
+  </head> 
+    
+  <body>
+    <h1><font color="green">Pradeep Tiwari Transport Co, Sitapur</font></h1>
+     
+<center>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Invoice..">
+  </br></br></br></br>
+<hr>
+<table id="myTable">
+  <tr class="header">
+    <th style="width:10%;">INVOICE NUMBER</th>
+    <th style="width:10%;">BILTY NO</th>
+    <th style="width:10%;">DATE</th>
+    <th style="width:10%;">VEHICLE</th>
+    <th style="width:10%;">TO</th>
+    <th style="width:10%;">QTY</th>
+    <th style="width:10%;">PRODUCT</th>
+    <th style="width:10%;">WHEIGHT</th>
+    <th style="width:10%;">FRAIGHT</th>
+    <th style="width:10%;">TOLL AGENCT</th>
+    <th style="width:10%;">DOUBLE</th>
+    <th style="width:10%;">SHORTAGE</th>
+    <th style="width:10%;">PAYBLE</th>
+    
+  </tr>
+  <tr><td>LKSBT1225002749</td><td>82</td>	<td>2- May - 2024</td>	<td>870</td>	<td>SFD</td><td>SIDHAULI</td><td>834</td>	<td>11.7</td>	<td>6500</td>	<td>490</td>		<td>99</td>	 <td>6891</td> </tr>
+   <tr> <td>	LKSBT1225002749 <td>82</td><td>2- May - 2024</td><td>	870</td><td>	SFD</td><td>	SIDHAULI</td><td>	834</td><td>	11.7</td><td>6500</td><td>	490</td><td>	0</td><td>	99</td><td>	6891</td></tr>
+   <tr> <td>	LKSBT1225002746 <td>83</td><td>	2- May - 2024	</td><td>7747</td><td>	SFD</td><td>	SITAPUR	</td><td>1176</td><td>	12.8	</td><td>9500</td><td>	980</td><td>	0</td><td>	960</td><td>	9520</td></tr>
+   <tr> <td>	LKUNT1225000612<td>87</td><td>	1- May - 2024	</td><td>7975</td><td>	UNNAO</td><td>	SANDILA	</td><td>1040</td><td>	18</td><td>	9068</td><td>	0</td><td>	0	</td><td>0	</td><td>9068</td></tr>
+   <tr> <td>LKSBT1225002751<td>89</td><td>	1- May - 2024</td><td>	2822</td><td>	SFD</td><td>	RAMPUR </td><td>MATHURA</td><td>	622</td><td>	0	</td><td>0</td><td>	0</td><td>	0</td><td>	0</td><td>	0	</td></tr>
+   <tr> <td>	LKSBT1225002750 <td> 90</td><td>	1- May - 2024</td><td>	2822</td><td>	SFD</td><td>	TAMBOR	</td><td>705</td><td>	15.5</td><td>	9817</td><td>	0</td><td>	0</td><td>	0</td><td>	9817</td></tr>
+   <tr> <td>	NA <td>201</td><td>	3- May - 2024</td><td>	5741</td><td>	SFD</td><td>	MAHAMUDABAD	</td><td>481</td><td>	0</td><td>	0</td><td>	0</td><td>	300</td><td>	0</td><td>	300</td></tr>
+   <tr> <td>	NA<td>202</td><td>	8- May - 2024	</td><td>5741</td><td>	SFD</td><td>	BISWA</td><td>	533</td><td>	12.4</td><td>	8500</td><td>	0</td><td>	0</td><td>	0</td><td>	8500</td></tr>
+   <tr> <td>	LKUNT1225000642<td>203</td><td>	4- May - 2024</td><td>	1995</td><td>	UNNAO	</td><td>BISWA	</td><td>875</td><td>	15.5</td><td>	11591</td><td>	1170</td><td>	0	</td><td>1782</td><td>	10979</td></tr>
+   <tr> <td>	LKSBM1225001468<td>204</td><td>	4- May - 2024	</td><td>7066</td><td>	SFD</td><td>	SITAPUR	</td><td>880</td><td>	14.3</td><td>	9500</td><td>	980</td><td>	0</td><td>	0	</td><td>10480</td></tr>
+   <tr> <td>LKSBT1225003093<td>205</td><td>	5- May - 2024	</td><td>5511</td><td>	SFD	</td><td>BKT	</td><td>422</td><td>	0	</td><td>0	</td><td>0	</td><td>300</td><td>	0</td><td>	300	</td></tr>
+   <tr> <td>	LKSBT1225003094<td>206</td><td>	5- May - 2024</td><td>	5511</td><td>	SFD</td><td>	PISAWAN	</td><td>616</td><td>	15.1</td><td>	9500</td><td>	980	</td><td>0</td><td>	0	</td><td>10480</td></tr>
+   <tr> <td>LKSBM1225001528<td>207</td><td>	5- May - 2024</td><td>	8523</td><td>	SFD</td><td>	REUSA	</td><td>823</td><td>	0</td><td>	0</td><td>	0	</td><td>300	</td><td>0	</td><td>300	</td></tr>
+   <tr> <td>	LKSBM1225001527 <td> 208</td><td>	5- May - 2024</td><td>	8523</td><td>	SFD</td><td>	TAMBOR	</td><td>708	</td><td>16.9</td><td>	10513</td><td>	0	</td><td>0</td><td>	891	</td><td>9622</td></tr>
+   <tr>  <td>	LKSBT1225003231<td> 209</td><td>	5- May - 2024</td><td>	870</td><td>	SFD	</td><td>TIKAITGANJ</td><td>	381</td><td>	0</td><td>	0</td><td>	0	</td><td>300</td><td>	0	</td><td>300</td></tr>
+   <tr> <td>	LKSBT1225003232 <td>210</td><td>	5- May - 2024</td><td>	870</td><td>	SFD	</td><td>BISWAN	</td><td>668	</td><td>14</td><td>	8500</td><td>	0</td><td>	0</td><td>	0	</td><td>8500</td></tr>
+   <tr><td>	LKSBT1225003396<td>211</td><td>	8- May - 2024</td><td>	2822</td><td>	SFD	</td><td>BKT</td><td>	710</td><td>	0</td><td>	0	</td><td>0	</td><td>300</td><td>	0	</td><td>300</td></tr>
+   <tr> <td>	LKSBT1225003395 <td>212</td><td>	8- May - 2024	</td><td>2822</td><td>	SFD	</td><td>SIDHAULI</td><td>	370	</td><td>12.2</td><td>	6500</td><td>	490</td><td>	0</td><td>	198</td><td>	6792</td></tr>
+   <tr> <td>LKSBM1225001858<td> 213</td><td>	12- May - 2024	</td><td>870</td><td>	SFD</td><td>	MAHAMUDABAD	</td><td>330</td><td>	0	</td><td>	0</td><td>	300</td><td>	0</td><td>	300	</td></tr>
+   <tr> <td>	LKSBT1225003652<td> 214</td><td>	12- May - 2024</td><td>	870</td><td>	SFD	</td><td>TAMBOR</td><td>	363</td><td>	10.2</td><td>	9500</td><td>	0</td><td>	0</td><td>	0	</td><td>9500</td></tr>
+   <tr> <td>	LKSBT1225003691 <td> 215</td><td>	13- May - 2024</td><td>	2822</td><td>	SFD</td><td>	SIDHAULI</td><td>	471	</td><td>0	</td><td>	0	</td><td>300</td><td>	0</td><td>	300</td></tr>
+   <tr>  <td>	LKSBT1225003692 <td> 216</td><td>	13- May - 2024</td><td>	2822</td><td>	SFD</td><td>	MAHOLI</td><td>	430	</td><td>10</td><td>	10500</td><td>	0</td><td>	0</td><td>	200</td><td>	10300</td></tr>
+</table>
+  </body>
+</html>
