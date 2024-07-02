@@ -71,5 +71,19 @@ ctx.fillRect(10,10, 280,130);
         }
     }
 </script>
+<!--Function to check password for database-->
+    <script type="text/javascript">
+    function checkPswd() {
+        var confirmPassword = "google";
+        var password = document.getElementById("pswd").value;
+        if (password == confirmPassword) {
+             window.location="https://www.google.co.in/";
+        }
+        else{
+            alert("Passwords do not match. Please try again");
+        }
+    }
+</script>
+
 </body>
 </html>
