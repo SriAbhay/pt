@@ -1,76 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Pradeep Transport</title>
-    <script>
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-    </script>
-
-<script>
-        function displayDateTime() {
-            // Get the current date and time
-            const now = new Date();
-
-            // Format the date and time
-            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-
-            const formattedDate = now.toLocaleDateString('en-US', dateOptions);
-            const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
-
-            // Display the date and time in the HTML element with the id "datetime"
-            document.getElementById('datetime').innerHTML = formattedDate + ' ' + formattedTime;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc-Prescription</title>
+	<style>
+        body {
+            
         }
 
-        // Call the function when the page loads
-        window.onload = function () {
-            displayDateTime();
+        .input-container {
+            position: relative;
+            width: 400px;
+			height: 10px;
+        }
 
-            // Update the date and time every second (1000 milliseconds)
-            setInterval(displayDateTime, 1000);
-        };
-    </script>
+        .input-container input {
+            width: 50%;
+            padding: 15px;
+            padding-left: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: all 0.3s ease;
+        }
 
+        .input-container input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 10%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .input-container input:focus ~ .icon {
+            color: #007bff;
+        }
+    </style>
+	
+	<style>
+	 .btn {
+            background: linear-gradient(135deg, #6d5dfc, #46aef7);
+            color: white;
+            border: none;
+            padding: 15px 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #46aef7, #6d5dfc);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+	
     <script>
-        const c = document.getElementById("myCanvas");
-        const ctx = c.getContext("2d");
-        
-        ctx.fillStyle = grad;
-ctx.fillRect(10,10, 280,130);
-</script>
+        function printDetails() 
+		{
+            // Get form element by ID
+            var form = document.getElementById("userForm");
 
+            // Get values from form inputs using their input IDs
+            var name = form.elements["name"].value;
+            var email = form.elements["email"].value;
+            var age = form.elements["age"].value;
+
+            // Display each input value separately
+            document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
+            document.getElementById("emailResult").innerHTML = "Email: " + email;
+            document.getElementById("ageResult").innerHTML = "Age: " + age;
+        }
+    </script>
+	<script>
+        function showAlert() {
+            alert("Data Added Sucessfully !");
+        }
+    </script>
+	 <script>
+      function generateID() {
+            // Generate a random number and convert it to a string
+            const uniqueID = 'nlpd/24/0' + Math.floor(Math.random() * 10000);
+            return uniqueID;
+        }
+
+        // Function to display the generated ID anywhere
+        function displayID() {
+            const generatedID = generateID();  // Generate a new unique ID
+            document.getElementById("idContainer").textContent = "UHID: " + generatedID;
+        }
+    </script>
+	 <script>
+        // Function to get the current date and time
+        function displayDateTime() {
+            const now = new Date();  // Get the current date and time
+
+            // Format date and time
+            const date = now.toLocaleDateString();  // e.g., "10/16/2024"
+            const time = now.toLocaleTimeString();  // e.g., "11:45:30 AM"
+
+            // Display date and time in the targeted element
+            document.getElementById("dateTimeContainer").textContent = "Addmission Date: " + date + "|" + time;
+        }
+    </script>
 </head>
 <body>
-</br></br>
-<center>
+    <h1>Enter Your Details</h1>
 
-<h1><big><big><big><font color="green"><b>Pradeep Tiwari Transport Co, Sitapur</b></big></big></big></font></h1>
-<h3>01, BEHTI, NEAR BY BARAMDAB, LAHERPUR, SITAPUR - 261135</h3>
-<h4><b>GST NO : </b> 09AKJPT559Q2Z2</br> <b>PAN :</b> AKJPT5529Q</h4>
-</br>
-<h3>ADMIN PORTAL</h3>
-    <p id="datetime"></p>
-<hr width="600" color="Blue" height="25">
-<form>
-    <label for="pswd"><h3><font color="Blue" face="Georgia">Enter your password</font> </h3></label>
-    <input type="password" id="pswd">
-    <input type="button" value="Submit" onclick="checkPswd();" />
-</form>
-<!--Function to check password the already set password is admin-->
-<script type="text/javascript">
-    function checkPswd() {
-        var confirmPassword = "admin";
-        var password = document.getElementById("pswd").value;
-        if (password == confirmPassword) {
-             window.location="frameset.html";
-        }
-        else{
-            alert("Passwords do not match. Please try again");
-        }
-    }
-</script>
+    <!-- Form for user input with internal form ID -->
+    <form id="userForm">
+	<div class="input-container">
+<table style="width: 1100px;">
+<tr>
+	<td><label for="name"><b>Name:</b></td>	
+    <td> <input type="text" id="name" name="name"  placeholder="Enter Patient's name"></label></td>
+
+     <td><label for="email"><b>Email:</b></td>
+	 <td><input type="email" id="email" name="email" placeholder="Enter Patient's email"></label></td>
+
+     <td style="width: 10px;"><label for="age"><b>Age:</b></td>
+	 <td><input type="number" id="age" name="age" placeholder="Enter Patient's age"></label></td>
+	 
+</tr>
+</table>
+</div>
+  </br></br></br></br></br></br></br></br>
+       <button type="button" onclick="printDetails(); showAlert(); displayID(); displayDateTime()" class="btn">Submit</button>
+	  <a href="check.html"><button type="button" class="btn">Reset</button></a>
+	  
+    </form>
+	</br></br>
+
+    <!-- Separate areas to display each form input -->
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>	
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<img src="NLPD-header.png">
+   
+	<table cellspacing="20">
+	<tr>
+	<td ><p id="nameResult"></p></td>
+	<td><p id="emailResult"></p></td>
+	<td><p id="ageResult"></p></td>
+	<td><p id="idContainer"></p></td>
+	<td><p id="dateTimeContainer"></p></td>
+	</tr>
+	</table>
+	<p>OPD SLIP</p>
+	
+	<table>
+	<tr>
+	<td>
+	<font color="red">Medicine</font></br>
+	<font color="green">(मेडिसिन)</font></br></br>
+	
+	<font color="red">Surgery</font></br>
+	<font color="green">(सर्जरी)</font></br></br>
+	
+	<font color="red">Obstetrics & </br>Gynecology</font></br>
+	<font color="green">(प्रसूति एवं स्त्री रोग))</font></br></br>
+	
+	<font color="red">Orthopedics</font></br>
+	<font color="green">(हड्डी रोग)</font></br></br>
+	
+	<font color="red">Ophthalmology</font></br>
+	<font color="green">(नेत्र)</font></br></br>
+	
+	<font color="red">Cardiology</font></br>
+	<font color="green">(ह्रदय रोग)</font></br></br>
+	
+	<font color="red">Neuro Surgery</font></br>
+	<font color="green">(न्यूरोसर्जरी)</font></br></br>
+	
+	<font color="red">Nephrology</font></br>
+	<font color="green">(नेफ़्रोलॉजी)</font></br></br>
+	
+	<font color="red">Dental</font></br>
+	<font color="green">(दन्तचिकित्सा)</font></br></br>
+	
+	<font color="red">Pathology</font></br>
+	<font color="green">(विकृति प्रयोगशाला)</font></br></br>
+	
+	
+	
+	
+	
+	
+     
+	
+	
+	
 
 </body>
 </html>
