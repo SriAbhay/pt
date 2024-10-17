@@ -83,12 +83,14 @@
             var doctorname = form.elements["doctorname"].value;
             var age = form.elements["age"].value;
 			var pannel = form.elements["pannel"].value;
+			var gender = form.elements["gender"].value;
 
             // Display each input value separately
             document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
             document.getElementById("doctornameResult").innerHTML = "doctorname: " + doctorname;
             document.getElementById("ageResult").innerHTML = "Age: " + age;
 			document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
+			document.getElementById("genderResult").innerHTML = "Gender: " + gender;
         }
     </script>
 	<script>
@@ -124,22 +126,6 @@
     </script>
 	
 	 <script>
-        function saveFormData(event) {
-            event.preventDefault(); // Prevent form from submitting
-
-            // Get form data
-            var name = document.getElementById("name").value;
-            var doctorname = document.getElementById("doctorname").value;
-
-            // Store the data in localStorage
-            localStorage.setItem("name", name);
-            localStorage.setItem("doctorname", doctorname);
-
-            // Redirect to the display page
-            window.location.href = "checkopd.html";
-        }
-    </script>
-	 <script>
         function downloadCSV() {
             // Get form data
 			
@@ -147,11 +133,12 @@
             var doctorname = document.getElementById("doctorname").value;
             var age = document.getElementById("age").value;
 			var pannel = document.getElementById("pannel").value;
+			var gender = document.getElementById("gender").value;
 
             // CSV content
             var csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Name,doctorname,Age,Pannel name,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
-            csvContent += `${name},${doctorname},${age},${pannel}\n`; // Add data
+            csvContent += "Name,doctorname,Age,Pannel name,Gender,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
+            csvContent += `${name},${doctorname},${age},${pannel},${gender}\n`; // Add data
 
             // Create a download link
             var encodedUri = encodeURI(csvContent);
@@ -184,6 +171,10 @@
      <td style="width: 10px;"><label for="age"><b>Age:</b></td>
 	 <td><input type="number" id="age" name="age" placeholder="Enter Patient's age"></label></td>
 	 
+	 
+     <td style="width: 10px;"><label for="age"><b>Gender:</b></td>
+	 <td><input type="text" id="gender" name="gender" placeholder="Enter Patient's Gender"></label></td>
+	 
 	  <td style="width: 10px;"><label for="pannel"><b>Pannel:</b></td>
 	 <td><input type="text" id="pannel" name="pannel" placeholder="Enter Patient's Pannel"></label></td>
 	 
@@ -205,12 +196,12 @@
 	</br></br></br></br></br></br></br></br></br></br></br>
 	</br></br></br></br></br></br></br></br></br></br></br>	
 	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<img src="NLPD-header.png">
+	
+	
+	<img src="NLPD-header.png" width="775">
    
-	<table cellspacing="20">
+	<table cellspacing="10" style="height: 5px;">
 	<tr>
 	<td><p id="nameResult"></p></td>
 	<td><p id="doctornameResult"></p></td>
@@ -220,6 +211,7 @@
 	</tr>
 	<tr>
 	<td><p id="pannelResult"></p></td>
+	<td><p id="genderResult"></p></td>
 	</tr>
 	</table>
 	<p>OPD SLIP</p>
