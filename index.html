@@ -80,18 +80,20 @@
 
             // Get values from form inputs using their input IDs
             var name = form.elements["name"].value;
-            var email = form.elements["email"].value;
+            var doctorname = form.elements["doctorname"].value;
             var age = form.elements["age"].value;
+			var pannel = form.elements["pannel"].value;
 
             // Display each input value separately
             document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
-            document.getElementById("emailResult").innerHTML = "Email: " + email;
+            document.getElementById("doctornameResult").innerHTML = "doctorname: " + doctorname;
             document.getElementById("ageResult").innerHTML = "Age: " + age;
+			document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
         }
     </script>
 	<script>
         function showAlert() {
-            alert("Data Added Sucessfully !");
+            alert("OPD Data Added Sucessfully !");
         }
     </script>
 	 <script>
@@ -120,29 +122,76 @@
             document.getElementById("dateTimeContainer").textContent = "Addmission Date: " + date + "|" + time;
         }
     </script>
+	
+	 <script>
+        function saveFormData(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Get form data
+            var name = document.getElementById("name").value;
+            var doctorname = document.getElementById("doctorname").value;
+
+            // Store the data in localStorage
+            localStorage.setItem("name", name);
+            localStorage.setItem("doctorname", doctorname);
+
+            // Redirect to the display page
+            window.location.href = "checkopd.html";
+        }
+    </script>
+	 <script>
+        function downloadCSV() {
+            // Get form data
+			
+            var name = document.getElementById("name").value;
+            var doctorname = document.getElementById("doctorname").value;
+            var age = document.getElementById("age").value;
+			var pannel = document.getElementById("pannel").value;
+
+            // CSV content
+            var csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Name,doctorname,Age,Pannel name,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
+            csvContent += `${name},${doctorname},${age},${pannel}\n`; // Add data
+
+            // Create a download link
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "OPD_data.csv");
+
+            // Append to body and initiate download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link); // Clean up
+        }
+    </script>
 </head>
 <body>
+<img src="#">
     <h1>Enter Your Details</h1>
 
     <!-- Form for user input with internal form ID -->
     <form id="userForm">
 	<div class="input-container">
-<table style="width: 1100px;">
+<table style="width: 1100px;">	
 <tr>
 	<td><label for="name"><b>Name:</b></td>	
     <td> <input type="text" id="name" name="name"  placeholder="Enter Patient's name"></label></td>
 
-     <td><label for="email"><b>Email:</b></td>
-	 <td><input type="email" id="email" name="email" placeholder="Enter Patient's email"></label></td>
+     <td><label for="doctorname"><b>Doctor:</b></td>
+	 <td><input type="doctorname" id="doctorname" name="doctorname" placeholder="Enter Patient's doctorname"></label></td>
 
      <td style="width: 10px;"><label for="age"><b>Age:</b></td>
 	 <td><input type="number" id="age" name="age" placeholder="Enter Patient's age"></label></td>
+	 
+	  <td style="width: 10px;"><label for="pannel"><b>Pannel:</b></td>
+	 <td><input type="text" id="pannel" name="pannel" placeholder="Enter Patient's Pannel"></label></td>
 	 
 </tr>
 </table>
 </div>
   </br></br></br></br></br></br></br></br>
-       <button type="button" onclick="printDetails(); showAlert(); displayID(); displayDateTime()" class="btn">Submit</button>
+       <button type="button" onclick="printDetails(); showAlert(); displayID(); displayDateTime(); downloadCSV()" class="btn">Submit</button>
 	  <a href="check.html"><button type="button" class="btn">Reset</button></a>
 	  
     </form>
@@ -163,11 +212,14 @@
    
 	<table cellspacing="20">
 	<tr>
-	<td ><p id="nameResult"></p></td>
-	<td><p id="emailResult"></p></td>
+	<td><p id="nameResult"></p></td>
+	<td><p id="doctornameResult"></p></td>
 	<td><p id="ageResult"></p></td>
 	<td><p id="idContainer"></p></td>
 	<td><p id="dateTimeContainer"></p></td>
+	</tr>
+	<tr>
+	<td><p id="pannelResult"></p></td>
 	</tr>
 	</table>
 	<p>OPD SLIP</p>
