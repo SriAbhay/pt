@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doc-Prescription</title>
+    <title>NLPD-OPD</title>
 	<style>
         body {
             
@@ -46,6 +47,33 @@
         }
     </style>
 	
+    <style>
+        .btnmenu {
+               background: linear-gradient(135deg, #796cf1, #1f03f9);
+               color: white;
+               border: none;
+               padding: 5px 10px;
+               font-size: 12px;
+               border-radius: 5px;
+               box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+               cursor: pointer;
+               transition: all 0.3s ease;
+               text-transform: uppercase;
+           }
+   
+           .btn:hover {
+               background: linear-gradient(135deg, #46aef7, #6d5dfc);
+               box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+               transform: translateY(-5px);
+           }
+   
+           .btn:active {
+               transform: translateY(2px);
+               box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+           }
+       </style>
+       
+
 	<style>
 	 .btn {
             background: linear-gradient(135deg, #6d5dfc, #46aef7);
@@ -80,14 +108,14 @@
 
             // Get values from form inputs using their input IDs
             var name = form.elements["name"].value;
-            var doctorname = form.elements["doctorname"].value;
+            var Doctor = form.elements["Doctor"].value;
             var age = form.elements["age"].value;
 			var pannel = form.elements["pannel"].value;
 			var gender = form.elements["gender"].value;
 
             // Display each input value separately
             document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
-            document.getElementById("doctornameResult").innerHTML = "doctorname: " + doctorname;
+            document.getElementById("DoctorResult").innerHTML = "Doctor: " + Doctor;
             document.getElementById("ageResult").innerHTML = "Age: " + age;
 			document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
 			document.getElementById("genderResult").innerHTML = "Gender: " + gender;
@@ -130,15 +158,15 @@
             // Get form data
 			
             var name = document.getElementById("name").value;
-            var doctorname = document.getElementById("doctorname").value;
+            var Doctor = document.getElementById("Doctor").value;
             var age = document.getElementById("age").value;
 			var pannel = document.getElementById("pannel").value;
 			var gender = document.getElementById("gender").value;
 
             // CSV content
             var csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Name,doctorname,Age,Pannel name,Gender,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
-            csvContent += `${name},${doctorname},${age},${pannel},${gender}\n`; // Add data
+            csvContent += "Name,Doctor,Age,Pannel name,Gender,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
+            csvContent += `${name},${Doctor},${age},${pannel},${gender}\n`; // Add data
 
             // Create a download link
             var encodedUri = encodeURI(csvContent);
@@ -154,38 +182,52 @@
     </script>
 </head>
 <body>
-<img src="#">
-    <h1>Enter Your Details</h1>
+    <table cellpadding="10">
+        <tr>
+            <td>
+                <td><img src="NLPD-header logo.png"></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">IPD</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">OPD</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">Emergency</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">Diagnosis</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">button5</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">button6</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">button7</button></a></td>
+            </tr>
+</table>
+
+    <big><font color="RED">Add new OPD patient</font></big>
 
     <!-- Form for user input with internal form ID -->
     <form id="userForm">
 	<div class="input-container">
-<table style="width: 1100px;">	
+<table style="width: 1500px;">	
 <tr>
 	<td><label for="name"><b>Name:</b></td>	
-    <td> <input type="text" id="name" name="name"  placeholder="Enter Patient's name"></label></td>
+    <td> <input type="text" id="name" name="name"  placeholder="name"></label></td>
 
-     <td><label for="doctorname"><b>Doctor:</b></td>
-	 <td><input type="doctorname" id="doctorname" name="doctorname" placeholder="Enter Patient's doctorname"></label></td>
+     <td><label for="Doctor"><b>Doctor:</b></td>
+	 <td><input type="text" id="Doctor" name="Doctor" placeholder="Doctor"></label></td>
 
      <td style="width: 10px;"><label for="age"><b>Age:</b></td>
-	 <td><input type="number" id="age" name="age" placeholder="Enter Patient's age"></label></td>
+	 <td><input type="number" id="age" name="age" placeholder="age"></label></td>
 	 
 	 
      <td style="width: 10px;"><label for="age"><b>Gender:</b></td>
-	 <td><input type="text" id="gender" name="gender" placeholder="Enter Patient's Gender"></label></td>
+	 <td><input type="text" id="gender" name="gender" placeholder="M/F/T"></label></td>
 	 
 	  <td style="width: 10px;"><label for="pannel"><b>Pannel:</b></td>
-	 <td><input type="text" id="pannel" name="pannel" placeholder="Enter Patient's Pannel"></label></td>
+	 <td><input type="text" id="pannel" name="pannel" placeholder="Pannel"></label></td>
 	 
 </tr>
 </table>
 </div>
-  </br></br></br></br></br></br></br></br>
+  </br></br></br></br>
        <button type="button" onclick="printDetails(); showAlert(); displayID(); displayDateTime(); downloadCSV()" class="btn">Submit</button>
-	  <a href="check.html"><button type="button" class="btn">Reset</button></a>
+	  <a href='index.html'><button type="button" class="btn">Reset</button></a>
 	  
     </form>
+
 	</br></br>
 
     <!-- Separate areas to display each form input -->
@@ -201,17 +243,18 @@
 	
 	<img src="NLPD-header.png" width="775">
    
-	<table cellspacing="10" style="height: 5px;">
+	<table cellspacing="20" border="0">
 	<tr>
 	<td><p id="nameResult"></p></td>
-	<td><p id="doctornameResult"></p></td>
+	<td><p id="DoctorResult"></p></td>
 	<td><p id="ageResult"></p></td>
 	<td><p id="idContainer"></p></td>
-	<td><p id="dateTimeContainer"></p></td>
 	</tr>
 	<tr>
-	<td><p id="pannelResult"></p></td>
+    <td><p id="pannelResult"></p></td>
 	<td><p id="genderResult"></p></td>
+    <td><p>Space for Patient Data</p></td>
+    <td><p id="dateTimeContainer"></p></td>
 	</tr>
 	</table>
 	<p>OPD SLIP</p>
