@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLPD-OPD</title>
+	<style>
+        body {
+            
+        }
+
+        .input-container {
+            position: relative;
+            width: 400px;
+			height: 10px;
+        }
+
+        .input-container input {
+            width: 50%;
+            padding: 15px;
+            padding-left: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 10%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .input-container input:focus ~ .icon {
+            color: #007bff;
+        }
+    </style>
+	
+    <style>
+        .btnmenu {
+               background: linear-gradient(135deg, #796cf1, #1f03f9);
+               color: white;
+               border: none;
+               padding: 5px 10px;
+               font-size: 12px;
+               border-radius: 5px;
+               box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+               cursor: pointer;
+               transition: all 0.3s ease;
+               text-transform: uppercase;
+           }
+   
+           .btn:hover {
+               background: linear-gradient(135deg, #46aef7, #6d5dfc);
+               box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+               transform: translateY(-5px);
+           }
+   
+           .btn:active {
+               transform: translateY(2px);
+               box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+           }
+       </style>
+       
+
+            // Append to body and initiate download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link); // Clean up
+        }
+    </script>
+</head>
+<body>
+    <table cellpadding="10">
+        <tr>
+            <td>
+                <td><img src="NLPD-header logo.png"></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">IPD</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">OPD</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">Emergency</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">Diagnosis</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">button5</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">button6</button></a></td>
+                <td><a href='index.html'><button type="button" class="btnmenu">button7</button></a></td>
+            </tr>
+</table>
+
+    <big><font color="RED">Add new OPD patient</font></big>
+
+    <!-- Form for user input with internal form ID -->
+    <form id="userForm">
+	<div class="input-container">
+<table style="width: 1500px;">	
+<tr>
+	<td><label for="name"><b>Name:</b></td>	
+    <td> <input type="text" id="name" name="name"  placeholder="name"></label></td>
+
+     <td><label for="Doctor"><b>Doctor:</b></td>
+	 <td><input type="text" id="Doctor" name="Doctor" placeholder="Doctor"></label></td>
+
+     <td style="width: 10px;"><label for="age"><b>Age:</b></td>
+	 <td><input type="number" id="age" name="age" placeholder="age"></label></td>
+	 
+	 
+     <td style="width: 10px;"><label for="age"><b>Gender:</b></td>
+	 <td><input type="text" id="gender" name="gender" placeholder="M/F/T"></label></td>
+	 
+	  <td style="width: 10px;"><label for="pannel"><b>Pannel:</b></td>
+	 <td><input type="text" id="pannel" name="pannel" placeholder="Pannel"></label></td>
+	 
+</tr>
+</table>
+</div>
+  </br></br></br></br>
+       <button type="button" onclick="printDetails(); showAlert(); displayID(); displayDateTime(); downloadCSV()" class="btn">Submit</button>
+	  <a href='index.html'><button type="button" class="btn">Reset</button></a>
+	  
+    </form>
+
+	</br></br>
+ <!-- Separate areas to display each form input -->
+  </br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br></br></br></br>
+	</br></br></br></br></br></br></br></br>
+	
+	
+	
+	
+	<img src="NLPD-header.png" height="250" width="1075">
+   
+	<table cellspacing="20" border="0">
+	<tr>
+	<td><p id="nameResult"></p></td>
+	<td><p id="DoctorResult"></p></td>
+	<td><p id="ageResult"></p></td>
+	<td><p id="idContainer"></p></td>
+	</tr>
+	<tr>
+    <td><p id="pannelResult"></p></td>
+	<td><p id="genderResult"></p></td>
+    <td><p>Space for Patient Data</p></td>
+    <td><p id="dateTimeContainer"></p></td>
+	</tr>
+	</table>
+	<p>OPD SLIP</p>
+	
+	<table>
+	<tr>
+	<td>
+	<font color="red">Medicine</font></br>
+	<font color="green">(मेडिसिन)</font></br></br>
+	
+	<font color="red">Surgery</font></br>
+	<font color="green">(सर्जरी)</font></br></br>
+	
+	<font color="red">Obstetrics & </br>Gynecology</font></br>
+	<font color="green">(प्रसूति एवं स्त्री रोग))</font></br></br>
+	
+	<font color="red">Orthopedics</font></br>
+	<font color="green">(हड्डी रोग)</font></br></br>
+	
+	<font color="red">Ophthalmology</font></br>
+	<font color="green">(नेत्र)</font></br></br>
+	
+	<font color="red">Cardiology</font></br>
+	<font color="green">(ह्रदय रोग)</font></br></br>
+	
+	<font color="red">Neuro Surgery</font></br>
+	<font color="green">(न्यूरोसर्जरी)</font></br></br>
+	
+	<font color="red">Nephrology</font></br>
+	<font color="green">(नेफ़्रोलॉजी)</font></br></br>
+	
+	<font color="red">Dental</font></br>
+	<font color="green">(दन्तचिकित्सा)</font></br></br>
+	
+	<font color="red">Pathology</font></br>
+	<font color="green">(विकृति प्रयोगशाला)</font></br></br>
+	
+	
+	
+	
+	
+	
+     
+	
+	
+	
+
+</body>
+</html>
