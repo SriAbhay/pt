@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<body>
+    <h1>Add Patient Details CSV to MS</h1>
+    
+        <table cellspacing="20" cellpading="25">
+                <form id="contactForm">
+                <tr>
+                        <td><label for="date">Date:</label></br>
+                        <input type="text" id="date" name="date" required></td>
+               
+                        <td><label for="uhid">UHID:</label></br>
+                        <input type="text" id="uhid" name="uhid" required></td>
+                
+                        <td><label for="ipd">IPD:</label></br>
+                        <input type="text" id="ipd" name="ipd" required></td>
+                
+                        <td><label for="daycare">Day Care ID:</label></br>
+                        <input type="text" id="daycare" name="daycare" required></td>
+                </tr>
+                <tr>
+                        <td><label for="emer">Emergency ID:</label></br>
+                        <input type="text" id="emer" name="emer" required></td>
+
+                        <td><label for="adharcard">Adhar card number:</label></br>
+                        <input type="text" id="adharcard" name="adharcard" required></td>
+               
+                        <td><label for="name">Name:</label></br>
+                        <input type="text" id="name" name="name" required></td>
+                
+                        <td><label for="phone">Contact number:</label></br>
+                        <input type="text" id="phone" name="phone" required></td>
+
+                </tr>
+                <tr>
+                        <td><label for="gender">Gender:</label></br>
+                        <input type="text" id="gender" name="gender" required></td>
+
+                        <td><label for="age">Age:</label></br>
+                        <input type="text" id="age" name="age" required></td>
+                
+                        <td><label for="address">Address</label></br>
+                        <input type="text" id="address" name="address" required></td>
+
+                        <td><label for="test">Test:</label></br>
+                        <input type="text" id="test" name="test" required></td>
+                </tr>
+                <tr>
+                        <td><label for="drname">Dr Name:</label></br>
+                        <input type="text" id="drname" name="drname" required></td>
+                
+                        <td><label for="dischargedate">Discharge date:</label></br>
+                        <input type="text" id="dischargedate" name="dischargedate" required></td>
+
+                        <td><label for="pannel">Pannel Name:</label></br>
+                        <input type="text" id="pannel" name="pannel" required></td>
+
+                </tr>
+                <tr>
+                       
+                        <td><button type="submit">Submit Patient Details to MS</button></td>
+                        <td><button type="form.html">Reset</button></td>
+                        
+                </tr>
+                    </form>
+                </table>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('https://script.google.com/macros/s/AKfycby_b4tkCu6S0hCtn7G9AqkI0xv4qNhgYh90z2ez9qMhF1ONc2nlFWzjdfFfyEJRfq2DqQ/exec',{
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
