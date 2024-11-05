@@ -110,15 +110,16 @@
             var name = form.elements["name"].value;
             var Doctor = form.elements["Doctor"].value;
             var age = form.elements["age"].value;
-			var pannel = form.elements["pannel"].value;
-			var gender = form.elements["gender"].value;
+	    var pannel = form.elements["pannel"].value;
+	    var gender = form.elements["gender"].value;
+	    var address = form.elements["address"].value;
 
             // Display each input value separately
             document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
             document.getElementById("DoctorResult").innerHTML = "Doctor: " + Doctor;
             document.getElementById("ageResult").innerHTML = "Age: " + age;
-			document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
-			document.getElementById("genderResult").innerHTML = "Gender: " + gender;
+	    document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
+	    document.getElementById("genderResult").innerHTML = "Gender: " + gender;
         }
     </script>
 	<script>
@@ -160,12 +161,13 @@
             var name = document.getElementById("name").value;
             var Doctor = document.getElementById("Doctor").value;
             var age = document.getElementById("age").value;
-			var pannel = document.getElementById("pannel").value;
-			var gender = document.getElementById("gender").value;
+	    var pannel = document.getElementById("pannel").value;
+	    var gender = document.getElementById("gender").value;
+	    var address = document.getElementById("address").value;
 
             // CSV content
             var csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Name,Doctor,Age,Pannel name,Gender,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
+            csvContent += "Name,Doctor,Age,Pannel name,Gender,Address,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
             csvContent += `${name},${Doctor},${age},${pannel},${gender}\n`; // Add data
 
             // Create a download link
@@ -222,6 +224,10 @@
 	 <td><input type="text" id="pannel" name="pannel" placeholder="Pannel"></label></td>
 	 
 </tr>
+	<tr>
+	  <td style="width: 50px;"><label for="address"><b>Pannel:</b></td>
+	 <td><input type="text" id="address" name="address" placeholder="address"></label></td>
+	</tr>
 </table>
 </div>
   </br></br></br></br>
