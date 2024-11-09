@@ -4,77 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSV to MS</title>
-   <style>
-	   body {
-            
-        }
-
-        .input-container {
-            position: relative;
-            width: 200px;
-	    height: 10px;
-        }
-
-        .input-container input {
-            width: 300%;
-            padding: 15px;
-            padding-left: 10px;
-            font-size: 16px;
-            border-radius: 25px;
-            border: 2px solid #ccc;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .input-container input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-        }
-
-        .input-container .icon {
-            position: absolute;
-            left: 10px;
-            top: 10%;
-            transform: translateY(-50%);
-            color: #aaa;
-            font-size: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .input-container input:focus ~ .icon {
-            color: #007bff;
-        }
-    </style>
-	<style>
-	 .btn {
-            background: linear-gradient(135deg, #6d5dfc, #46aef7);
-            color: white;
-            border: none;
-            padding: 25px 20px;
-            font-size: 18px;
-            border-radius: 10px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, #46aef7, #6d5dfc);
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+   
 </head>
 <body>
+    
     <h1>Add Patient Details CSV to MS</h1>
     <div class="input-container">
-        <table cellspacing="150" cellpading="10">
+        <table cellspacing="50" cellpading="50">
                 <form id="contactForm">
                 <tr>
                         <td><label for="date">Date:</label></br>
@@ -86,14 +22,14 @@
                         <td><label for="ipd">IPD:</label></br>
                         <input type="text" id="ipd" name="ipd" required></td>
                 
-                        <td><label for="daycare">Day Care ID:</label></br>
+                        <td><label for="daycare">DayCare ID:</label></br>
                         <input type="text" id="daycare" name="daycare" required></td>
                 </tr>
                 <tr>
                         <td><label for="emer">Emergency ID:</label></br>
                         <input type="text" id="emer" name="emer" required></td>
 
-                        <td><label for="adharcard">Adhar card number:</label></br>
+                        <td><label for="adharcard">Adharcard number:</label></br>
                         <input type="text" id="adharcard" name="adharcard" required></td>
                
                         <td><label for="name">Name:</label></br>
@@ -129,12 +65,12 @@
                 </tr>
                 <tr>
                        
-                        <td><button type="submit" class="btn">Submit Patient Details to MS</button></td>
+                        <td><button type="submit">Submit Patient Details to MS</button></td>
                        
                 </tr>
                     </form>
-		<a href="MS-form.html"><button class="btn">Reset</button></a>
-		<a href="opd-index2.html"><button class="btn">Back</button></a>
+		<a href="MS-form.html"><button>Reset</button></a>
+		<a href="opd-index2.html"><button>Back</button></a>
                 </table>
 	        </div>
 	 
