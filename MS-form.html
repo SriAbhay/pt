@@ -3,11 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
+    <title>CSV to MS</title>
+     body {
+            
+        }
+
+        .input-container {
+            position: relative;
+            width: 400px;
+			height: 10px;
+        }
+
+        .input-container input {
+            width: 50%;
+            padding: 15px;
+            padding-left: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 10%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .input-container input:focus ~ .icon {
+            color: #007bff;
+        }
+    </style>
+	<style>
+	 .btn {
+            background: linear-gradient(135deg, #6d5dfc, #46aef7);
+            color: white;
+            border: none;
+            padding: 15px 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #46aef7, #6d5dfc);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <h1>Add Patient Details CSV to MS</h1>
-    
+    <div class="input-container">
         <table cellspacing="20" cellpading="25">
                 <form id="contactForm">
                 <tr>
@@ -63,13 +128,13 @@
                 </tr>
                 <tr>
                        
-                        <td><button type="submit">Submit Patient Details to MS</button></td>
-                        <td><button type="form.html">Reset</button></td>
-                        
+                        <td><button type="submit" class="btn">Submit Patient Details to MS</button></td>
+                        <td><button type="MS-form.html" class="btn">Reset</button></td>
+                         <td><button type="opd-index2.html" class="btn">Back</button></td>
                 </tr>
                     </form>
                 </table>
-
+    </div>
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
