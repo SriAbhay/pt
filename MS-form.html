@@ -21,7 +21,24 @@
             transform: scale(1.1); /* Scale effect */
         }
     </style>
-   
+
+  <style>
+        .styled-input {
+            width: 100%; /* Full width */
+            padding: 12px 20px; /* Padding inside input */
+            font-size: 16px; /* Font size */
+            border: 2px solid #4CAF50; /* Green border */
+            border-radius: 8px; /* Rounded corners */
+            outline: none; /* Remove outline on focus */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+
+        .styled-input:focus {
+            border-color: #45a049; /* Darker green when focused */
+            box-shadow: 0 0 8px rgba(72, 191, 84, 0.5); /* Green glow effect */
+        }
+    </style>
+	
 </head>
 <body>
     <center>
@@ -31,53 +48,53 @@
                 <form id="contactForm">
                 <tr>
                         <td><label for="date">Date:</label></br>
-                        <input type="text" id="date" name="date" required></td>
+                        <input type="text" id="date" name="date" class="styled-input" required ></td>
                
                         <td><label for="uhid">UHID:</label></br>
-                        <input type="text" id="uhid" name="uhid" required></td>
+                        <input type="text" id="uhid" name="uhid" class="styled-input" required></td>
                 
                         <td><label for="ipd">IPD:</label></br>
-                        <input type="text" id="ipd" name="ipd" required></td>
+                        <input type="text" id="ipd" name="ipd" class="styled-input" required></td>
                 
                         <td><label for="daycare">DayCare ID:</label></br>
-                        <input type="text" id="daycare" name="daycare" required></td>
+                        <input type="text" id="daycare" name="daycare" class="styled-input" required></td>
                 </tr>
                 <tr>
                         <td><label for="emer">Emergency ID:</label></br>
-                        <input type="text" id="emer" name="emer" required></td>
+                        <input type="text" id="emer" name="emer" class="styled-input" required></td>
 
                         <td><label for="adharcard">Adharcard number:</label></br>
-                        <input type="text" id="adharcard" name="adharcard" required></td>
+                        <input type="text" id="adharcard" name="adharcard" class="styled-input" required></td>
                
                         <td><label for="name">Name:</label></br>
-                        <input type="text" id="name" name="name" required></td>
+                        <input type="text" id="name" name="name" class="styled-input" required></td>
                 
                         <td><label for="phone">Contact number:</label></br>
-                        <input type="text" id="phone" name="phone" required></td>
+                        <input type="text" id="phone" name="phone" class="styled-input" required></td>
 
                 </tr>
                 <tr>
                         <td><label for="gender">Gender:</label></br>
-                        <input type="text" id="gender" name="gender" required></td>
+                        <input type="text" id="gender" name="gender" class="styled-input" required></td>
 
                         <td><label for="age">Age:</label></br>
-                        <input type="text" id="age" name="age" required></td>
+                        <input type="text" id="age" name="age" class="styled-input" required></td>
                 
                         <td><label for="address">Address</label></br>
-                        <input type="text" id="address" name="address" required></td>
+                        <input type="text" id="address" name="address" class="styled-input" required></td>
 
                         <td><label for="test">Test:</label></br>
-                        <input type="text" id="test" name="test" required></td>
+                        <input type="text" id="test" name="test" class="styled-input" required></td>
                 </tr>
                 <tr>
                         <td><label for="drname">Dr Name:</label></br>
-                        <input type="text" id="drname" name="drname" required></td>
+                        <input type="text" id="drname" name="drname" class="styled-input" required></td>
                 
                         <td><label for="dischargedate">Discharge date:</label></br>
-                        <input type="text" id="dischargedate" name="dischargedate" required></td>
+                        <input type="text" id="dischargedate" name="dischargedate" class="styled-input" required></td>
 
                         <td><label for="pannel">Pannel Name:</label></br>
-                        <input type="text" id="pannel" name="pannel" required></td>
+                        <input type="text" id="pannel" name="pannel" class="styled-input" required></td>
 
                 </tr>
                 <tr>
