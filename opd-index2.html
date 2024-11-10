@@ -118,7 +118,7 @@
 
             // Display each input value separately
             document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
-            document.getElementById("DoctorResult").innerHTML = "Doctor: " + Doctor;
+            document.getElementById("doctorResult").innerHTML = "doctor: " + doctor;
             document.getElementById("ageResult").innerHTML = "Age: " + age;
 	    document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
 	    document.getElementById("genderResult").innerHTML = "Gender: " + gender;
@@ -164,7 +164,7 @@
             // Get form data
 			
             var name = document.getElementById("name").value;
-            var Doctor = document.getElementById("Doctor").value;
+            var doctor = document.getElementById("doctor").value;
             var age = document.getElementById("age").value;
 	    var pannel = document.getElementById("pannel").value;
 	    var gender = document.getElementById("gender").value;
@@ -176,7 +176,7 @@
             // CSV content
             var csvContent = "data:text/csv;charset=utf-8,";
             csvContent += "Name,Doctor,Age,Pannel name,Gender,Address,Contact,Test,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
-            csvContent += `${name},${Doctor},${age},${pannel},${gender},${address},${contact},${test}\n`; // Add data
+            csvContent += `${name},${doctor},${age},${pannel},${gender},${address},${contact},${test}\n`; // Add data
 
             // Create a download link
             var encodedUri = encodeURI(csvContent);
@@ -218,8 +218,8 @@
 	<td><label for="name"><b>Name:</b></td>	
     <td> <input type="text" id="name" name="name"  placeholder="name"></label></td>
 
-     <td><label for="Doctor"><b>Doctor:</b></td>
-	 <td><input type="text" id="Doctor" name="Doctor" placeholder="Doctor"></label></td>
+     <td><label for="doctor"><b>Doctor:</b></td>
+	 <td><input type="text" id="doctor" name="doctor" placeholder="doctor"></label></td>
 
      <td style="width: 10px;"><label for="age"><b>Age:</b></td>
 	 <td><input type="number" id="age" name="age" placeholder="age"></label></td>
@@ -268,7 +268,7 @@
 	<table cellspacing="20" border="0">
 	<tr>
 	<td><p id="nameResult"></p></td>
-	<td><p id="DoctorResult"></p></td>
+	<td><p id="doctorResult"></p></td>
 	<td><p id="ageResult"></p></td>
 	<td><p id="idContainer"></p></td>
 	</tr>
