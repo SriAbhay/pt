@@ -113,6 +113,8 @@
 	    var pannel = form.elements["pannel"].value;
 	    var gender = form.elements["gender"].value;
 	    var address = form.elements["address"].value;
+	    var contact = form.elements["contact"].value;
+	    var contact = form.elements["Test"].value;
 
             // Display each input value separately
             document.getElementById("nameResult").innerHTML = "Patient's Name: " + name;
@@ -120,6 +122,9 @@
             document.getElementById("ageResult").innerHTML = "Age: " + age;
 	    document.getElementById("pannelResult").innerHTML = "Pannel: " + pannel;
 	    document.getElementById("genderResult").innerHTML = "Gender: " + gender;
+	    document.getElementById("addressResult").innerHTML = "address: " + address;
+	    document.getElementById("contactResult").innerHTML = "contact: " + contact;
+            document.getElementById("TestResult").innerHTML = "Test: " + Test;
         }
     </script>
 	<script>
@@ -164,11 +169,14 @@
 	    var pannel = document.getElementById("pannel").value;
 	    var gender = document.getElementById("gender").value;
 	    var address = document.getElementById("address").value;
+	    var contact = document.getElementById("contact").value;
+	    var Test = document.getElementById("Test").value;
+		
 
             // CSV content
             var csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "Name,Doctor,Age,Pannel name,Gender,Address,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
-            csvContent += `${name},${Doctor},${age},${pannel},${gender}\n`; // Add data
+            csvContent += "Name,Doctor,Age,Pannel name,Gender,Address,Contact,Test,UHID NUMBER,DATE & Time,Remark by OPD STAFF \n"; // Add headers
+            csvContent += `${name},${Doctor},${age},${pannel},${gender},${address},${contact},${Test}\n`; // Add data
 
             // Create a download link
             var encodedUri = encodeURI(csvContent);
