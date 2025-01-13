@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>PATIENT DATA ENTRY PAGE</title>
+    <style>
+        .display-container {
+            margin-top: 20px;
+        }
+        .patient-info {
+            margin-bottom: 10px;
+        }
+    </style>
+     
+     <style>
+        .my-button {
+      background-color: #0a0af0;
+      color: white;
+      border: none;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .my-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+<style>
+    .styled-input {
+      padding: 8px;
+      border: 2px solid #007BFF;
+      border-radius: 8px;
+      font-size: 15px;
+      width: 170px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .styled-input:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+  </style>
+
+<script>
+        function displayDate() {
+            // Get current date
+            const date = new Date();
+            
+            // Get day, month, and year
+            const day = ("0" + date.getDate()).slice(-2); // Pad single digits with zero
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is zero-indexed
+            const year = date.getFullYear();
+            
+            // Format the date as dd/mm/yyyy
+            const formattedDate = `${day}/${month}/${year}`;
+            
+            // Display the date in the element with id "dateDisplay"
+            document.getElementById("dateDisplay").textContent = formattedDate;
+        }
+    </script>
+   
+<script>
+    // Function to generate a random 5-digit number
+    function generateRandomNumber() {
+        // Math.random() generates a float between 0 and 1
+        // Multiplying by 90000 and adding 10000 gives a number between 10000 and 99999
+        const randomNumber = Math.floor(Math.random() * 90000) + 10000;
+        document.getElementById("randomNumber").textContent = randomNumber;
+    }
+
+    // Trigger random number generation on page load
+    window.onload = generateRandomNumber;
+</script>
+<script>
+    function generateRandomAlphanumeric() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let randomString = '';
+        const length = 10; // Length of the random string
+
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            randomString += characters[randomIndex];
+        }
+
+        document.getElementById('randomString').textContent = randomString;
+    }
+</script>
+
+<script>
+    function generateRandom() {
+      // Generate 2 random numbers
+      const randomNumbers = `${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 100)}`;
+
+      // Generate 2 random alphabets
+      const randomAlphabets = String.fromCharCode(Math.floor(Math.random() * 26) + 65) +
+                              String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+
+      // Display the result
+      document.getElementById('result').textContent = `EMER-${randomNumbers}${randomAlphabets}`;
+    }
+  </script>
+
+<style>
+    .item {
+      padding: 5px;
+      border: 1px solid #fcfbfb;
+      margin: 5px;
+      display: inline-flex;
+      width: 70px;
+      text-align: right;
+      background-color: #f9f9f9;
+      
+    }
+
+    .filter-container {
+      margin-bottom: 20px;
+    }
+  </style>
+
+
+
+
+</head>
+<body onload="displayDate(), generateRandomNumber()">
+<table cellspacing="20">
+    <tr><td><img src="NLPD-header logo.png" height="70" width="150"> </td>
+        <td><h1><strong>OPD Form</strong></h1></td>
+        <td><h1>Date: <span id="dateDisplay"></span><h1></span></td>
+        <td><a href="input-to-priscription-OPD.html"><button class="my-button"><i class="fas fa-sync-alt"></i></i></button></a></td>
+        <td><a href="search-from-gsheet.html"><button class="my-button"><i class="fas fa-search"></i></button></a></td>
+        <td><a href="index.html"><button class="my-button"><i class="fas fa-sign-out-alt"></i></button></a></td>
+        <td><a href="select-work.html"><button class="my-button"><i class="fa fa-home"></i></button></a></td>
+        
+        </tr>
+</table>
+
+<strong>Selet Doctor name</strong>
+
+  <div class="filter-container">
+    <label for="categoryFilter">Select Category:</label>
+    <select id="categoryFilter">
+      <option value="all">All</option>
+      <option value="ENT">ENT</option>
+      <option value="neuro">Neuro</option>
+      <option value="dairy">Dairy</option>
+    </select>
+  </div>
+
+  <div class="items">
+    <div class="item" data-category="ENT">DR. Rajan Garg</div>
+    <div class="item" data-category="neuro">Dr. Sant Kumar Pandey</div>
+    <div class="item" data-category="ENT">DR. Abhay Srivastava</div>
+    <div class="item" data-category="dairy">Milk</div>
+    <div class="item" data-category="neuro">Dr. Manmohan Sigh</div>
+    <div class="item" data-category="ENT">DR. Shiv Prakash</div>
+    <div class="item" data-category="dairy">Cheese</div>
+  </div>
+
+  <script>
+    // Function to filter items based on category selection
+    document.getElementById('categoryFilter').addEventListener('change', function() {
+      const selectedCategory = this.value;
+      const items = document.querySelectorAll('.item');
+      
+      items.forEach(item => {
+        if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
+          item.style.display = 'inline-block'; // Show item
+        } else {
+          item.style.display = 'none'; // Hide item
+        }
+      });
+    });
+  </script>
+
+    <table cellspacing="20" cellpadding="5">
+            <tr>
+            <td><b>UHID:</b></td><td bgcolor="lightgreen"><p id="randomNumber"></p></td>
+            <td><button class="my-button" onclick="generateRandomAlphanumeric()">OPD no.</button></td>
+            <td bgcolor="green"><p id="randomString">OPD</p></td>
+            
+            </td>
+        </tr>
+       
+        </table>
+    <!-- patient Input Form -->
+     <table cellspacing="20" cellpadding="20">
+    <form id="patientForm">
+        <tr>
+        <td bgcolor="lightgreen">
+        <label for="patientAge"><b>UHID:</b></label></br>
+        <input class="styled-input" type="text" id="patientUHID" name="patientUHID" value="UHID : NLPD/24/" required></td>
+
+        <td bgcolor="green">
+        <label for="patientIpd"><b>OPD:</b></label></br>
+        <input class="styled-input" type="text" id="patientIpd" name="patientIpd" value="OPD no. : " required></td>
+
+                <td>
+        <label for="patientName"><b>Name:</b></label></br>
+        <input class="styled-input" type="text" id="patientName" name="patientName" value="Name : " required></td>
+
+        <td>
+        <label for="patientAge"><b>Age:</b></label></br>
+        <input class="styled-input"type="text" id="patientAge" name="patientAge" value="Age : " required></td>
+
+        <td>
+        <label for="patientGender"><b>Gender:</b></label></br>
+        <input class="styled-input" type="text" id="patientGender" name="patientGender" value="Gender : " required></td>
+        </tr>
+
+        <tr>
+        <td>
+        <label for="patientAddress"><b>Address:</b></label></br>
+        <input class="styled-input" type="text" id="patientAddress" name="patientAddress" value="Address : " required></td>
+
+        <td>
+        <label for="patientDate"><b>Date:<span id="dateDisplay"></span></b></label></br>
+        <input class="styled-input" type="date" id="patientDate" name="patientDate"  value="Date : "required></td>
+        
+        <td>
+        <label for="patientValidationdate"><b>Validation date:</b></label></br>
+        <input class="styled-input" type="date" id="patientValidationdate" name="patientValidationdate" value="Valid date : " required></td>
+
+        <td>
+        <label for="patientDocname"><b>Doctor's Name:</b></label></br>
+        <input class="styled-input" type="text" id="patientDocname" name="patientDocname" value="Doctor Name : " required></td>
+
+        <td>
+        <label for="patientPannel:"><b>Pannel:</b></label></br>
+        <input class="styled-input" type="text" id="patientPannel" name="patientPannel" value="Pannel : " required></td>
+
+        <td>
+        <label for="patientContact"><b>Contact:</b></label></br>
+        <input class="styled-input" type="text" id="patientContact" name="patientContact" value="Contact : " required></td>
+        </tr>
+
+        <tr>
+        <td>
+        <label for="patientBillno"><b>Bill no.:</b></label></br>
+        <input class="styled-input" type="text" id="patientBillno" name="patientBillno" value="Bill no. : " required></td>
+
+        <td>
+        <label for="patientBilldate"><b>Bill date:</b></label></br>
+        <input class="styled-input" type="date" id="patientBilldate" name="patientBilldate" value="Bill Date : " required></td>
+        
+        <td>
+        <label for="patientAppointmentmode"><b>Appointment Mode:</b></label></br>
+        <input class="styled-input" type="text" id="patientAppointmentmode" name="patientAppointmentmode" value="App mode : " required></td>
+
+        <td>
+        <label for="patientReferredby"><b>Referred by:</b></label></br>
+        <input class="styled-input" type="text" id="patientReferredby" name="patientReferredby" value="Referred by : " required></td>
+
+        <td>
+        <label for="patientAdharno"><b>Adhar No.:</b></label></br>
+        <input class="styled-input" type="text" id="patientAdharno" name="patientAdharno" value="Adhar no : " required></td>
+
+        <td>
+        <label for="patientdocfees"><b>Doctor's Fees.:</b></label></br>
+        <input class="styled-input" type="text" id="patientdocfees" name="patientdocfees" value="Doc Fees : " required></td>
+        </tr>
+
+        <tr>
+        <td bgcolor="green">
+        <label for="patientIpdwardcharge"><b>OPD Charge:</b></label></br>
+        <input class="styled-input" type="text" id="patientIpdwardcharge" name="patientIpdwardcharge" value="Emergency charge : " required></td>
+
+
+        <td>
+        <label for="patientdocfeesdiscount"><b>Discount:</b></label></br>
+        <input class="styled-input" type="text" id="patientdocfeesdiscount" name="patientdocfeesdiscount" value="Discount : " required></td>
+
+        <td>
+        <label for="patienttotal"><b>Total :</b></label></br>
+        <input class="styled-input"type="text" id="patienttotal" name="patienttotal" value="TOTAL : " required></td>
+
+        <td bgcolor="green">
+        <label for="patientIpdroom"><b>OPD ROOM No. :</b></label></br>
+        <input class="styled-input"type="text" id="patientIpdroom" name="patientIpdroom" value="ROOM No. : " required></td>
+
+        <td bgcolor="green">
+        <label for="patientIpdward"><b>Remark.</b></label></br>
+        <input class="styled-input" type="text" id="patientIpdward" name="patientIpdward" value="Remark: " required></td>
+
+        </tr>
+        <tr><td>
+        <button class="my-button" type="submit">Submit</button>
+        
+    </form>
+</td></tr>
+    </table>
+
+    <div class="display-container" id="displayArea">
+        <!-- Display patient Data here -->
+    </div>
+
+
+    <script>
+        document.getElementById('patientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('https://script.google.com/macros/s/AKfycbwZqR92fpD5Z4idtEkJUx0zc43vSY6FBAwixqTsqvTXEmSbPWtmIPCOn0_wYL0vGT8paA/exec',{
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                document.getElementById('patientForm').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+    
+
+
+    <script>
+        // Get the form and display area elements
+        const form = document.getElementById('patientForm');
+        const displayArea = document.getElementById('displayArea');
+
+        // Listen for form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent the form from submitting to the server
+
+            // Get patient data from the input fields
+            const patientUHID = document.getElementById('patientUHID').value;
+            const patientIpd = document.getElementById('patientIpd').value;          
+            const patientName = document.getElementById('patientName').value;
+            const patientAge = document.getElementById('patientAge').value;
+            const patientGender = document.getElementById('patientGender').value;
+            const patientAddress = document.getElementById('patientAddress').value;
+            const patientDate = document.getElementById('patientDate').value;
+            const patientValidationdate = document.getElementById('patientValidationdate').value;
+            const patientDocname = document.getElementById('patientDocname').value;
+            const patientPannel = document.getElementById('patientPannel').value;
+            const patientContact = document.getElementById('patientContact').value;
+            const patientBillno = document.getElementById('patientBillno').value;
+            const patientBilldate = document.getElementById('patientBilldate').value;
+            const patientAppointmentmode = document.getElementById('patientAppointmentmode').value;
+            const patientReferredby = document.getElementById('patientReferredby').value;
+            const patientAdharno = document.getElementById('patientAdharno').value;
+            const patientdocfees = document.getElementById('patientdocfees').value;
+            const patientIpdwardcharge = document.getElementById('patientIpdwardcharge').value;
+            const patientdocfeesdiscount = document.getElementById('patientdocfeesdiscount').value;
+            const patienttotal = document.getElementById('patienttotal').value;
+            const patientIpdroom = document.getElementById('patientIpdroom').value;
+            const patientIpdward = document.getElementById('patientIpdward').value;
+           
+            // Check if all fields are filled out
+            if (patientName && patientAge && patientGender) {
+                // Clear any previous display content
+                displayArea.innerHTML = '';
+
+                // Create a container for displaying the patient data
+
+                const patientInfo = document.createElement('div');
+                patientInfo.classList.add('patient-info');
+                patientInfo.innerHTML = `
+                    <h3>Patient Information:</h3>
+                    <img src="NLPD-header.png" width="775"></br>
+                    <table cellpadding="20">
+                        <tr>
+                        <td>
+                        <p> 
+                    <strong> ${patientUHID}</br>
+                    <strong> ${patientName}</br>
+                    <strong> ${patientAge}</br>
+                    <strong> ${patientGender}</br>
+                    <strong> ${patientAddress}</br>
+                   <strong>.Appointment Date: ${patientDate}</strong></p>
+                    
+                    </td>
+                        <td>
+                        <p>
+                    <strong>.Validation Date:</strong> ${patientValidationdate}</br>
+                    <strong> ${patientDocname}</br>
+                    <strong> ${patientPannel}</br>
+                    <strong> ${patientContact}</br>
+                    <strong> ${patientIpdroom}</br>
+                    <strong> ${patientIpdward}</strong></p>
+                    </td>
+                    <td>
+                    <p>
+                    <strong> ${patientBillno}</br>
+                    <strong>.Bill Date: </strong> ${patientBilldate}</br>
+                    <strong> ${patientAppointmentmode}</br>
+                   <strong> ${patientReferredby}</br>
+                    <strong> ${patientAdharno}</br>
+                    <strong> ${patientIpd}</strong></p>
+                    </td>
+                    </tr>
+                    </table>
+</br>
+                    <hr width="1000" align="left">
+                   </br>
+                    <table>
+<tr>
+<td>
+<font color="red">Medicine</font></br>
+<font color="green">(मेडिसिन)</font></br></br>
+
+<font color="red">Surgery</font></br>
+<font color="green">(सर्जरी)</font></br></br>
+
+<font color="red">Obstetrics & </br>Gynecology</font></br>
+<font color="green">(प्रसूति एवं स्त्री रोग))</font></br></br>
+
+<font color="red">Orthopedics</font></br>
+<font color="green">(हड्डी रोग)</font></br></br>
+
+<font color="red">Ophthalmology</font></br>
+<font color="green">(नेत्र)</font></br></br>
+
+<font color="red">Cardiology</font></br>
+<font color="green">(ह्रदय रोग)</font></br></br>
+
+<font color="red">Neuro Surgery</font></br>
+<font color="green">(न्यूरोसर्जरी)</font></br></br>
+
+<font color="red">Nephrology</font></br>
+<font color="green">(नेफ़्रोलॉजी)</font></br></br>
+
+<font color="red">Dental</font></br>
+<font color="green">(दन्तचिकित्सा)</font></br></br>
+
+<font color="red">Pathology</font></br>
+<font color="green">(विकृति प्रयोगशाला)</font></br></br>
+</td>
+</tr>
+</table>
+
+</br></br></br><hr></br></br></br></br></br>
+
+<img src="receipt-header.png" width="775"></br>
+ <table cellpadding="20">
+     <tr>
+      <td>
+       <p> 
+         <strong> ${patientUHID}</br>
+         <strong> ${patientIpd}</br>
+          <strong> ${patientName}</br>
+         <strong> ${patientAge}</strong></br>
+         </td>
+  <td>
+          <p> 
+         <strong> ${patientGender}</br>
+         <strong> ${patientIpdroom}</br>
+         <strong> ${patientBillno}</br>
+         <strong>Bill Date: ${patientBilldate}</br>
+         </td>
+  <td>
+          <p> 
+                <strong> ${patientPannel}</strong></br>
+               <strong> ${patientAdharno}</br>
+                    <strong> ${patientIpdward}</strong></p>
+                    </td>
+                    </tr>
+                    </table>
+                    <hr width="1000" align="left">
+                    <table border="1">
+                        <tr>
+                            <th>As per rule, Particulars/Amount of the bill and the reason of the Amount is mentioned here. </th>
+                            <th>AMOUNT</th>
+                            </tr>
+                        <tr>
+                            <td> <strong>Doctor's Prescription fees</strong></td>
+                            <td><p>${patientdocfees}</p></td>
+                        </tr>
+                        <tr>
+                            <td> <strong>Discount</strong></td>
+                            <td><p>${patientdocfeesdiscount}</p></td>
+
+                            </tr>
+                        <tr>
+                            <td> <strong>IPD Wrad charge</strong></td>
+                            <td><p>${patientIpdwardcharge}</p></td>
+
+                        <tr>
+                            <td> <strong>TOTAL OPD AMOUNT</strong></td>
+                            <td><p>${patienttotal}</p></td>
+                            </tr>
+                            </table>
+
+
+                `;
+
+
+                // Append the patient info to the display area
+                displayArea.appendChild(patientInfo);
+
+                // Clear the form inputs after submission
+                form.reset();
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NLPD - LOGIN</title>
+   <style>
+    body {
+            display: grid;
+            place-items: center; /* Center both vertically and horizontally */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            background-color: #f0f0f0; /* Light background color */
+        }
+   
+        /* Box styling */
+        .content-box {
+            border: 2px solid #0000FF; /* Border color */
+            border-radius: 100px; /* Rounded corners */
+            padding: 20px; /* Space inside the box */
+            margin: 0px; /* Space outside the box */
+			margin-top:30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            background-color: #f9f9f9; /* Background color */
+			height: 500px; /* Fixed height */
+			width: 500px;
+			 place-items: center; /* Center both vertically and horizontally */
+
+            
+        }
+    </style>
+	
+  <style>
+   body {
+          
+        }
+
+        .input-container {
+            position: relative;
+            width: 400px;
+			height: 10px;
+        }
+
+        .input-container input {
+            width: 50%;
+            padding: 15px;
+            padding-left: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 10%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .input-container input:focus ~ .icon {
+            color: #007bff;
+        }
+    </style>
+
+  <style>
+	 .btn {
+            background: linear-gradient(135deg, #6d5dfc, #46aef7);
+            color: white;
+            border: none;
+            padding: 15px 10px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #46aef7, #6d5dfc);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+  <script>
+    function checkPassword() {
+      // Get the password input value
+      var password = document.getElementById("password").value;
+
+      // Define different passwords for different pages
+      if (password === "nurse1") {
+	  alert("login Sucessfully");
+        window.location.href = "page1.html";
+
+      } else if (password === "password2") {
+	  alert("login Sucessfully");
+        window.location.href = "page2.html";
+
+      } else if (password === "abhay@4334") {
+	  alert("login Sucessfully");
+        window.location.href = "select-work-IPD.html";
+
+      } else if (password === "abhay@4335") {
+	  alert("login Sucessfully");
+            window.location.href = "select-work-OPD.html";
+
+      } else if (password === "abhay@4336") {
+	  alert("login Sucessfully");
+        window.location.href = "select-work-EMR.html";
+      }
+	  else {
+        alert("Incorrect password. \n Please try again.");
+      }
+    }
+  </script>
+   <script>
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      const showPassword = document.getElementById("showPassword");
+
+      // Toggle password visibility based on checkbox state
+      passwordField.type = showPassword.checked ? "text" : "password";
+    }
+  </script>
+ 
+  	 <script>
+    function displayDateTime() {
+      // Get the current date and time
+      var now = new Date();
+      
+      // Extract day, month, and year
+      var day = String(now.getDate()).padStart(2, '0');  // Add leading zero if needed
+      var month = String(now.getMonth() + 1).padStart(2, '0');  // Months are zero-indexed
+      var year = now.getFullYear();
+      
+      // Format the date as dd/mm/yyyy
+      var formattedDate = day + '/' + month + '/' + year;
+      
+      // Display the formatted date
+      document.getElementById("dateDisplay").innerHTML = "<b>Today: </b>" + formattedDate;
+    }
+  </script>
+</head>
+<body onload="displayDateTime()">
+<div class="content-box">
+<center>
+<img src="NLPD-header logo.png">
+  <h1>Login Area</h1>
+   <p id="dateDisplay"></p>
+    <!-- Add some form fields if needed -->
+   
+  <div class="input-container">
+     <input type="password" id="password" placeholder="Enter password">
+	  <input type="checkbox" id="showPassword" onclick="togglePassword()"></br>
+	   <label for="showPassword">Show Password</label></br></br>
+  <button onclick="checkPassword(); showAlert()" class="btn">Submit</button>
+   <a href="index.html"><button type="button" class="btn">Reset</button></a>
+  </div>
+  </br>
+  </div>
+ </body>
+</html>
