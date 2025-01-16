@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPD WORK</title>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        // Disable right-click
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            
+        });
+    </script>
+
+    <style>
+        body {
+            
+        }
+
+        .input-container {
+            position: relative;
+            width: 400px;
+			height: 10px;
+        }
+
+        .input-container input {
+            width: 50%;
+            padding: 15px;
+            padding-left: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 10%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .input-container input:focus ~ .icon {
+            color: #007bff;
+        }
+    </style>
+	
+    <style>
+        .btnmenu {
+               background: linear-gradient(135deg, #796cf1, #1f03f9);
+               color: white;
+               border: none;
+               padding: 5px 10px;
+               font-size: 12px;
+               border-radius: 5px;
+               box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+               cursor: pointer;
+               transition: all 0.3s ease;
+               text-transform: uppercase;
+           }
+   
+           .btn:hover {
+               background: linear-gradient(135deg, #46aef7, #6d5dfc);
+               box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+               transform: translateY(-5px);
+           }
+   
+           .btn:active {
+               transform: translateY(2px);
+               box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+           }
+       </style>
+
+<style>
+    .my-button {
+  background-color: #0a0af0;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s;
+}
+
+.my-button:hover {
+  background-color: #45a049;
+}
+</style>
+       
+
+	<style>
+	 .btn {
+            background: linear-gradient(135deg, #6d5dfc, #46aef7);
+            color: white;
+            border: none;
+            padding:50px 10px;
+            font-size: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #46aef7, #6d5dfc);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function displayDate() {
+            // Get current date
+            const date = new Date();
+            
+            // Get day, month, and year
+            const day = ("0" + date.getDate()).slice(-2); // Pad single digits with zero
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is zero-indexed
+            const year = date.getFullYear();
+            
+            // Format the date as dd/mm/yyyy
+            const formattedDate = `${day}/${month}/${year}`;
+            
+            // Display the date in the element with id "dateDisplay"
+            document.getElementById("dateDisplay").textContent = formattedDate;
+        }
+    </script>
+
+<script>
+    function showAlertAndRedirect() {
+        // Show alert
+        alert("NLPD: You are LOGOUT!");
+        
+        // Redirect to another page (e.g., 'https://example.com')
+        window.location.href = "loader.html";  // Replace with your desired URL
+    }
+  </script>
+
+</head>
+<body onload="displayDate()">
+    <table cellspacing="20">
+        <tr><td><img src="NLPD-header logo.png" height="70" width="150"> </td>
+            <td><h1><strong>IPD</strong></h1></td>
+            <td><h1>Date:<span id="dateDisplay"></span></span><h1></span></td>
+            <td><a href="loader.html"><button class="my-button" onclick="showAlertAndRedirect()"><i class="fas fa-sign-out-alt"></i></button></a></td>
+        </tr>
+    </table>
+    <center>
+    </br></br></br></br></br></br></br></br>
+    <table cellspacing="20" cellpadding="20">
+        <tr>
+            <td>
+                <a href="input-to-priscription-IPD.html"><button class="btn">IPD-ADDMISSION</a></button></td>
+                <td><a href="search-from-gsheet.html"><button class="btn">ENQUIRY</a></button></td>
+                <td> <a><button class="btn">DISCHARGE</a></button></td>
+                <td> <a><button class="btn">PROFILE</a></button></td>
+        </tr>
+    </table>
+
+
+
+   </body>
+</html>

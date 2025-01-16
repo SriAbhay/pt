@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>BED DATA ENTRY PAGE</title>
+    <style>
+        .display-container {
+            margin-top: 20px;
+        }
+        .patient-info {
+            margin-bottom: 10px;
+        }
+    </style>
+     
+     <style>
+        .my-button {
+      background-color: #0a0af0;
+      color: white;
+      border: none;
+      padding: 10px 29px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 10px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .my-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+<script>
+    function displayDate() {
+        // Get current date
+        const date = new Date();
+        
+        // Get day, month, and year
+        const day = ("0" + date.getDate()).slice(-2); // Pad single digits with zero
+        const month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is zero-indexed
+        const year = date.getFullYear();
+        
+        // Format the date as dd/mm/yyyy
+        const formattedDate = `${day}/${month}/${year}`;
+        
+        // Display the date in the element with id "dateDisplay"
+        document.getElementById("dateDisplay").textContent = formattedDate;
+    }
+</script>
+</head>
+<body onload="displayDate()">
+    <center>
+        <table cellspacing="10">
+            <tr><td><img src="NLPD-header logo.png" height="50" width="100"> </td>
+                <td><h3><strong>Bed Aavailibility</strong></h3></td>
+                <td><h3>Date: <span id="dateDisplay"></span><h3></span></td>
+                <td><a href="bed.html"><button class="my-button"><i class="fas fa-sync-alt"></i></i></button></a></td>
+                <td><a href="search-from-gsheet.html"><button class="my-button"><i class="fas fa-search"></i></i></button></a></td>
+                <td><a href="input-to-priscription.html"><button class="my-button"><i class="fas fa-user-plus"></i></i></button></a></td>
+                <td><a href="index.html"><button class="my-button"><i class="fas fa-sign-out-alt"></i></button></a></td>
+                <td><a href="select-work.html"><button class="my-button"><i class="fa fa-home"></i></button></a></td>
+        
+            </tr>
+        </table>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRnypPvqFwLcLup6mkSYSAiilou3sqzwZ6FLrOsaVjdLIma5MJiV38AzELwAh0WOnMZEpNF4tcbaXpn/pubhtml?widget=true&amp;headers=false"height="650"width ="1500"></iframe>
+</center>
+</body>

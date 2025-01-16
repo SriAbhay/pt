@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Animation</title>
+  <script>
+    // Disable right-click
+    document.addEventListener("contextmenu", function(event) {
+        event.preventDefault();
+        
+    });
+</script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .loading-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000204;
+      opacity: 0;
+      animation: fadeIn 2s forwards, moveText 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes moveText {
+      0% {
+        transform: translateY(20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    // Redirect to another page after the animation duration
+    window.onload = function() {
+      setTimeout(function() {
+        window.location.href = "index.html";  // Replace with your target URL
+      }, 2000);  // 2000ms (2 seconds) delay before redirect
+    }
+  </script>
+</head>
+<body>
+  <center>
+    <img src="NLPD-header logo.png" height="70" width="150"></br></br>
+  <div class="loading-text">!! Logout !!</div>
+</body>
+</html>
