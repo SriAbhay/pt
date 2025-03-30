@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Patient Billing</title>
+    <script>
+      // Disable right-click
+      document.addEventListener("contextmenu", function(event) {
+          event.preventDefault();
+          
+      });
+  </script>
+
+   
+    <script>
+      // Redirect to another page after the animation duration
+      window.onload = function() {
+        setTimeout(function() {
+          window.location.href = "input-to-priscription-OPD.html";  // Replace with your target URL
+        }, 2000);  // 2000ms (2 seconds) delay before redirect
+      }
+    </script>
+
+
+
+    <style>
+        .display-container {
+            margin-top: 20px;
+        }
+        .patient-info {
+            margin-bottom: 10px;
+        }
+    </style>
+     
+     <style>
+        .my-button {
+      background-color: #0a0af0;
+      color: white;
+      border: none;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .my-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+<style>
+    .styled-input {
+      padding: 8px;
+      border: 2px solid #007BFF;
+      border-radius: 8px;
+      font-size: 15px;
+      width: 170px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .styled-input:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+  </style>
+
+<script>
+        function displayDate() {
+            // Get current date
+            const date = new Date();
+            
+            // Get day, month, and year
+            const day = ("0" + date.getDate()).slice(-2); // Pad single digits with zero
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); // Month is zero-indexed
+            const year = date.getFullYear();
+            
+            // Format the date as dd/mm/yyyy
+            const formattedDate = `${day}/${month}/${year}`;
+            
+            // Display the date in the element with id "dateDisplay"
+            document.getElementById("dateDisplay").textContent = formattedDate;
+        }
+    </script>
+   
+<script>
+    // Function to generate a random 5-digit number
+    function generateRandomNumber() {
+        // Math.random() generates a float between 0 and 1
+        // Multiplying by 90000 and adding 10000 gives a number between 10000 and 99999
+        const randomNumber = Math.floor(Math.random() * 90000) + 10000;
+        document.getElementById("randomNumber").textContent = randomNumber;
+    }
+
+    // Trigger random number generation on page load
+    window.onload = generateRandomNumber;
+</script>
+<script>
+    function generateRandomAlphanumeric() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let randomString = '';
+        const length = 10; // Length of the random string
+
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            randomString += characters[randomIndex];
+        }
+
+        document.getElementById('randomString').textContent = randomString;
+    }
+</script>
+
+<script>
+    function generateRandom() {
+      // Generate 2 random numbers
+      const randomNumbers = `${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 100)}`;
+
+      // Generate 2 random alphabets
+      const randomAlphabets = String.fromCharCode(Math.floor(Math.random() * 26) + 65) +
+                              String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+
+      // Display the result
+      document.getElementById('result').textContent = `EMER-${randomNumbers}${randomAlphabets}`;
+    }
+  </script>
+
+<style>
+    .item {
+      padding: 5px;
+      border: 1px solid #fcfbfb;
+      margin: 5px;
+      display: inline-flex;
+      width: 70px;
+      text-align: right;
+      background-color: #f9f9f9;
+      
+    }
+
+    .filter-container {
+      margin-bottom: 20px;
+    }
+  </style>
+
+<script>
+  function showAlertAndRedirect() {
+      // Show alert
+      alert("NLPD: You are LOGOUT!.");
+      
+      // Redirect to another page (e.g., 'https://example.com')
+      window.location.href = "loader.html";  // Replace with your desired URL
+  }
+</script>
+
+
+</head>
+<body onload="displayDate(), generateRandomNumber()">
+   
+<table cellspacing="20">
+    <tr><td><img src="NLPD-header logo.png" height="70" width="150"> </td>
+        <td><h1><strong>OPD Form</strong></h1></td>
+        <td><h1>Date: <span id="dateDisplay"></span><h1></span></td>
+        <td><a href="BILLING.html"><button class="my-button"><i class="fas fa-sync-alt"></i></i></button></a></td>
+        <td><a href="search-from-gsheet.html"><button class="my-button"><i class="fas fa-search"></i></button></a></td>
+        <td><a href="loader.html"><button class="my-button" onclick="showAlertAndRedirect()"><i class="fas fa-sign-out-alt"></i></button></a></td>
+        <td><a href="select-work.html"><button class="my-button"><i class="fa fa-home"></i></button></a></td>
+        
+        </tr>
+</table>
+<hr>
+<center>
+<iframe id="myIframe"src="https://docs.google.com/spreadsheets/d/1EcxgGGudP7xIZ5kyXt7Ps-RNq5WZBn31WGp2Hnvlshc/edit?gid=0#gid=0&range=A1:N19" style="width: 90%; border: none;"></iframe>
+
+<script>
+  function resizeIframe() {
+    var iframe = document.getElementById("myIframe");
+    iframe.style.height = window.innerHeight + "px";
+  }
+
+  window.onload = resizeIframe;
+  window.onresize = resizeIframe;
+</script>
+
+
+
+</body>
+</html>
